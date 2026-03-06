@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+/* eslint-disable no-unused-vars */ 
 // ─── RAW GAME DATA ────────────────────────────────────────────────────────────
 const GAMES = {
   detVsNyk: {
