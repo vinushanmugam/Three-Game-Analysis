@@ -111,14 +111,9 @@ function Tag({ color, children }) {
 
 function GameCard({ game, gameKey, active, onClick }) {
   const winner = game.winner;
-  const detWon = winner === "DET";
-  const sasWon = winner === "SAS";
-  const nykWon = winner === "NYK";
 
   const homeTeam = game.home;
   const awayTeam = game.away;
-  const homeScore = game.score[homeTeam];
-  const awayScore = game.score[awayTeam];
 
   const teamColor = (t) => t === "DET" ? C.detL : t === "NYK" ? C.nyk : C.sas;
 
@@ -155,9 +150,6 @@ function GameCard({ game, gameKey, active, onClick }) {
         {[0,1,2,3].map(q => {
           const aw = game.quarters[awayTeam]?.[q] ?? 0;
           const hw = game.quarters[homeTeam]?.[q] ?? 0;
-          const det = awayTeam==="DET" ? aw : homeTeam==="DET" ? hw : null;
-          const sas = awayTeam==="SAS" ? aw : homeTeam==="SAS" ? hw : null;
-          const nyk = awayTeam==="NYK" ? aw : homeTeam==="NYK" ? hw : null;
           const detQ = game.quarters["DET"]?.[q];
           const oppQ = awayTeam!=="DET" ? game.quarters[awayTeam]?.[q] : game.quarters[homeTeam]?.[q];
           const detWonQ = detQ > oppQ;
